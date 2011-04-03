@@ -114,10 +114,3 @@ void beep () {
     cycles--;
   } 
 }
-
-void meter(int pin, float value, float scale) {
-  float volts = value * 1.2 / scale;      // scale to meter full-scale volts
-  volts = volts > 1.3 ? 1.3 : volts < 0 ? 0: volts;
-  int pwm = volts * 255 / 4.82;           // scale to proprtion of vcc
-  analogWrite(pin, pwm);
-}
